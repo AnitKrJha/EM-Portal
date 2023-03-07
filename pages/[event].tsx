@@ -92,16 +92,17 @@ const IndividualEvent = (props: Props) => {
     getAllEventsAndReload();
   };
 
+
   const getCurrentEvent = () => {
     let data = JSON.parse(sessionStorage.getItem("allEvents") || "[]");
     setCurrentEventData(data.filter((e: any) => e.event_id === event).at(0));
   };
 
   useEffect(() => {
-    if (!sessionStorage.getItem(event)) {
+    if (!sessionStorage.getItem(typeof event==='string'? event:'')) {
       getRegistrations(event);
     } else {
-      setRegCount(sessionStorage.getItem(event));
+      setRegCount(sessionStorage.getItem(typeof event==='string'? event:''));
     }
 
     getCurrentEvent();

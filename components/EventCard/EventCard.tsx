@@ -39,9 +39,7 @@ const EventCard = (props: Props) => {
           <Text noOfLines={3}>
            {desc}
           </Text>
-          <Text color="blue.600" fontSize="2xl">
-            $450
-          </Text>
+          
         </Stack>
       </CardBody>
       <Divider />

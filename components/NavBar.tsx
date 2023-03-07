@@ -10,11 +10,11 @@ const NavBar = () => {
         Event
         Approval
       </Link>
-      <Button>
       <Link href='/' >
+      <Button>
        Back To Home
-      </Link>
         </Button>  
+      </Link>
       
     </Flex>
   );
