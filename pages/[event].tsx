@@ -1,33 +1,22 @@
+import NavBar from "@/components/NavBar";
 import {
-  Tabs,
-  TabList,
-  Tab,
-  TabPanels,
-  TabPanel,
-  Text,
-  Image,
-  Box,
-  Button,
-  Container,
-  Flex,
-  Heading,
-  List,
-  ListItem,
-  SimpleGrid,
-  Stack,
-  StackDivider,
-  useColorModeValue,
-  VStack,
-  Alert,
-  AlertDescription,
-  AlertIcon,
-  AlertTitle,
+    Alert,
+    AlertDescription,
+    AlertIcon,
+    AlertTitle, Box,
+    Button,
+    Container,
+    Flex,
+    Heading, Image, List,
+    ListItem,
+    SimpleGrid,
+    Stack,
+    StackDivider, Text, VStack
 } from "@chakra-ui/react";
-import { MdLocalShipping, MdAppRegistration } from "react-icons/md";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import NavBar from "@/components/NavBar";
+import { MdAppRegistration } from "react-icons/md";
 
 type Props = {};
 
@@ -165,7 +154,6 @@ const IndividualEvent = (props: Props) => {
                   {currentEventData.event_name}
                 </Heading>
                 <Text
-                  color={useColorModeValue("gray.900", "gray.400")}
                   fontWeight={300}
                   fontSize={"2xl"}
                   className="flex items-center gap-3"
@@ -182,13 +170,11 @@ const IndividualEvent = (props: Props) => {
                 direction={"column"}
                 divider={
                   <StackDivider
-                    borderColor={useColorModeValue("gray.200", "gray.600")}
                   />
                 }
               >
                 <VStack spacing={{ base: 4, sm: 6 }}>
                   <Text
-                    color={useColorModeValue("gray.500", "gray.400")}
                     fontSize={"2xl"}
                     fontWeight={"300"}
                   >
@@ -199,7 +185,6 @@ const IndividualEvent = (props: Props) => {
                 <Box>
                   <Text
                     fontSize={{ base: "16px", lg: "18px" }}
-                    color={useColorModeValue("yellow.500", "yellow.300")}
                     fontWeight={"500"}
                     textTransform={"uppercase"}
                     mb={"4"}
@@ -218,7 +203,6 @@ const IndividualEvent = (props: Props) => {
                 <Box>
                   <Text
                     fontSize={{ base: "16px", lg: "18px" }}
-                    color={useColorModeValue("yellow.500", "yellow.300")}
                     fontWeight={"500"}
                     textTransform={"uppercase"}
                     mb={"4"}
@@ -275,7 +259,6 @@ const IndividualEvent = (props: Props) => {
                 size={"lg"}
                 py={"7"}
                 bg={currentEventData.approved ? "green.500" : "red.500"}
-                color={useColorModeValue("white", "gray.900")}
                 textTransform={"uppercase"}
                 _hover={{
                   transform: "translateY(2px)",
