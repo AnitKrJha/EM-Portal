@@ -1,3 +1,4 @@
+import LoginPrompt from "@/components/LoginPrompt";
 import NavBar from "@/components/NavBar";
 import {
     Alert,
@@ -13,7 +14,7 @@ import {
     Stack,
     StackDivider, Text, VStack
 } from "@chakra-ui/react";
-import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useSupabaseClient, useUser } from "@supabase/auth-helpers-react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { MdAppRegistration } from "react-icons/md";
@@ -21,6 +22,7 @@ import { MdAppRegistration } from "react-icons/md";
 type Props = {};
 
 const IndividualEvent = (props: Props) => {
+  const user=useUser()
   const supabase = useSupabaseClient();
   const router = useRouter();
   const [regCount, setRegCount] = useState<any>("0");
@@ -96,6 +98,16 @@ const IndividualEvent = (props: Props) => {
 
     getCurrentEvent();
   }, []);
+
+
+  if(!user){
+    return (
+      <>
+      <NavBar/>
+      <LoginPrompt/>
+      </>
+    )
+  }
 
   return (
     <>
