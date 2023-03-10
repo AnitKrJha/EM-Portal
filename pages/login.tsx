@@ -53,7 +53,7 @@ export default function Login() {
                 const { data, error } = await supabase.auth.signInWithOtp({
                   email: email,
                   options: {
-                    emailRedirectTo: "https://locahost:3000",
+                    emailRedirectTo: "https://em-portal.vercel.app",
                   },
                 });
                 setLoading(false)
