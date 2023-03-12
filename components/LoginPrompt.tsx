@@ -12,7 +12,7 @@ const LoginPrompt = (props: Props) => {
       justifyContent={"center"}
       alignItems={"center"}
     >
-      <Flex flexDir={"column"}>
+      <Flex flexDir={"column"} gap='10px' alignItems={'center'}>
         <Heading>Login First</Heading>
         <Link href={"/login"}>
           <Button>Login</Button>

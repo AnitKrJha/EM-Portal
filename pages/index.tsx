@@ -5,6 +5,7 @@ import { useSession, useSupabaseClient, useUser } from "@supabase/auth-helpers-r
 import { Inter } from "next/font/google";
 import LoginPrompt from "@/components/LoginPrompt";
 import NavBar from "@/components/NavBar";
+import GetnewEvents from "@/components/GetnewEvents";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,14 +15,17 @@ export default function Home() {
   const supabase = useSupabaseClient();
 
   const [allEvents, setAllEvents] = useState<any>([]);
+  const [isLoading,setIsLoading]=useState(false)
 
   const getAllEvents = async () => {
+    setIsLoading(true)
     const { data, error } = await supabase.from("socevent").select("*");
 
     console.log({ data, error });
 
     sessionStorage.setItem("allEvents", JSON.stringify(data));
     setAllEvents(data);
+    setIsLoading(false)
   };
 
   useEffect(() => {
@@ -54,10 +58,12 @@ export default function Home() {
       <>
         {/* <pre className="text-red-500">{JSON.stringify(allEvents, null, 4)}</pre> */}
         <NavBar />
+        <GetnewEvents getEvent={getAllEvents} isLoading={isLoading}/>
         <Heading textAlign={"center"} py="20px">
           All Events
         </Heading>
         <SimpleGrid
+          _loading={{opacity:0.5}}
           templateColumns="repeat(auto-fill, minmax(300px, 1fr))"
           spacing={3}
         >

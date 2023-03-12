@@ -54,6 +54,7 @@ export default function Login() {
                   email: email,
                   options: {
                     emailRedirectTo: "https://em-portal.vercel.app",
+                    // emailRedirectTo:'https://localhost:3000'
                   },
                 });
                 setLoading(false)
